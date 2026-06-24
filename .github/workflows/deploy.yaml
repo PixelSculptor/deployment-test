@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: "src/package.json"
+          cache-dependency-path: "package-lock.json"
 
       - name: Install App dependencies
         working-directory: ./src
