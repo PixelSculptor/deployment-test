@@ -1,6 +1,5 @@
 {
   "app": "npx tsx bin/aws.ts",
-  "profile": "kacper-dev",
   "watch": {
     "include": ["**"],
     "exclude": [
