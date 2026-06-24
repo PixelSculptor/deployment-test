@@ -21,12 +21,22 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
+          cache-dependency-path: "src/package.json"
 
-      - name: Install dependencies
+      - name: Install App dependencies
+        working-directory: ./src
+        run: npm ci
+
+      - name: Build App
+        working-directory: ./src
+        run: npm run build
+
+      - name: Install CDK dependencies
+        working-directory: aws
         run: npm ci
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
