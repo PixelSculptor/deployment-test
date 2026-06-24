@@ -43,7 +43,9 @@ jobs:
           audience: sts.amazonaws.com
 
       - name: CDK Synth
+        working-directory: aws
         run: npx cdk synth
 
       - name: CDK Deploy
+        working-directory: aws
         run: npx cdk deploy
